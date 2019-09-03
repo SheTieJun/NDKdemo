@@ -14,22 +14,22 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        externalNativeBuild {
-            cmake {
-                arguments '-DANDROID_PLATFORM=android-19',
-                        '-DANDROID_TOOLCHAIN=clang',
-                        '-DANDROID_ARM_NEON=TRUE'
-                cppFlags "-frtti -fexceptions"
-                abiFilters 'x86', 'x86_64',  'armeabi-v7a', 'arm64-v8a'
-            }
-        }
+//        externalNativeBuild {
+//            cmake {
+//                arguments '-DANDROID_PLATFORM=android-19',
+//                        '-DANDROID_TOOLCHAIN=clang',
+//                        '-DANDROID_ARM_NEON=TRUE'
+//                cppFlags "-frtti -fexceptions"
+//                abiFilters 'x86', 'x86_64',  'armeabi-v7a', 'arm64-v8a'
+//            }
+//        }
     }
 
-    externalNativeBuild {
-        cmake {
-            path "src/main/java/CMakeLists.txt"  // 设置所要编写的c源码位置，以及编译后so文件的名字
-        }
-    }
+//    externalNativeBuild {
+//        cmake {
+//            path "src/main/java/CMakeLists.txt"  // 设置所要编写的c源码位置，以及编译后so文件的名字
+//        }
+//    }
 
     buildTypes {
         release {

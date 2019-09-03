@@ -12,7 +12,7 @@ JNIEXPORT jstring  JNICALL Java_me_shetj_audio_LameUtils_testInit(
         JNIEnv *env,
         jclass cls){
 
-    return "testInit";
+    return (*env)->NewStringUTF(env,"Hello World From JNI!!!!!");
 }
 
 
