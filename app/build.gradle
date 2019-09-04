@@ -16,11 +16,12 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                arguments '-DANDROID_PLATFORM=android-19',
-                        '-DANDROID_TOOLCHAIN=clang',
-                        '-DANDROID_ARM_NEON=TRUE'
+                arguments "-DANDROID_STL=c++_shared",
+                '-DANDROID_PLATFORM=android-19',
+                '-DANDROID_TOOLCHAIN=clang',
+                '-DANDROID_ARM_NEON=TRUE'
                 cppFlags "-frtti -fexceptions"
-                abiFilters 'x86', 'x86_64',  'armeabi-v7a', 'arm64-v8a'
+                cFlags "-DSTDC_HEADERS" //宏定义
             }
         }
     }
@@ -37,13 +38,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     sourceSets {
         main {
-            jni.srcDirs = ['src/main/jni',
-                           'src/main/jni/']
-            jniLibs.srcDir 'src/main/libs'
+            jniLibs.srcDirs = ['libs']
         }
     }
+
 }
 
 dependencies {

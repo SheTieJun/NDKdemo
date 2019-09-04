@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.4.1)
 SET(CMAKE_CXX_FLAGS "-Wno-error=format-security -Wno-error=pointer-sign")
 
 #设置生成的so动态库最后输出的路径
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../jniLibs/${ANDROID_ABI})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../libs/${ANDROID_ABI})
 
 #ADD_SUBDIRECTORY(utility) //添加要编译的子目录
 
@@ -16,7 +16,7 @@ AUX_SOURCE_DIRECTORY(../jni/libmp3lame_3.100 SRC_LIST)
 #设置变量
 #SET(LAME_LIBMP3_DIR  ../jni/libmp3lame_3.100)
 #
-SET(APPEND  SRC_LIST ../jni/lame_util.c)
+#SET(APPEND  SRC_LIST ../jni/lame_util.c)
 
 add_library( # Sets the name of the library.
              mp3lame
@@ -25,6 +25,7 @@ add_library( # Sets the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
+            ../jni/lame_util.c
             ${SRC_LIST})
 
 
